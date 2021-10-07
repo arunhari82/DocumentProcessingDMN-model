@@ -49,7 +49,7 @@ Build and Deploy
  
 ## Testing :
 ``` 
-Import the json ("BlackKnightDMN Demo.postman_collection.json" attached in email) into postman and execute the following request in order
+Import the json ("BlackKnightDMN Demo.postman_collection.json" from this project) into postman and execute the following request in order
  
 1) CreateBPMNInstance-DocProcess
 2) Get Variable value (In the URL update ProcessinstanceID from request 1)
