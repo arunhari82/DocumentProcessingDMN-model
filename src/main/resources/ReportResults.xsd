@@ -1,0 +1,211 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="UndisclosedDebtActivity">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:date" name="activityDate" use="optional"/>
+          <xs:attribute type="xs:string" name="address" use="optional"/>
+          <xs:attribute type="xs:string" name="addressLine1" use="optional"/>
+          <xs:attribute type="xs:string" name="addressLine2" use="optional"/>
+          <xs:attribute type="xs:string" name="borrowerName" use="optional"/>
+          <xs:attribute type="xs:string" name="brokerCode" use="optional"/>
+          <xs:attribute type="xs:string" name="channel" use="optional"/>
+          <xs:attribute type="xs:string" name="city" use="optional"/>
+          <xs:attribute type="xs:string" name="firstName" use="optional"/>
+          <xs:attribute type="xs:string" name="fullAddress" use="optional"/>
+          <xs:attribute type="xs:date" name="insertDate" use="optional"/>
+          <xs:attribute type="xs:string" name="lastName" use="optional"/>
+          <xs:attribute type="xs:string" name="loanStatus" use="optional"/>
+          <xs:attribute type="xs:string" name="loanStatusCode" use="optional"/>
+          <xs:attribute type="xs:int" name="recordKey" use="optional"/>
+          <xs:attribute type="xs:string" name="state" use="optional"/>
+          <xs:attribute type="xs:string" name="stdCity" use="optional"/>
+          <xs:attribute type="xs:short" name="stdHouseNumber" use="optional"/>
+          <xs:attribute type="xs:string" name="stdPostDirectional" use="optional"/>
+          <xs:attribute type="xs:string" name="stdPreDirectional" use="optional"/>
+          <xs:attribute type="xs:string" name="stdState" use="optional"/>
+          <xs:attribute type="xs:string" name="stdStreetName" use="optional"/>
+          <xs:attribute type="xs:string" name="stdStreetSuffix" use="optional"/>
+          <xs:attribute type="xs:string" name="stdUnit" use="optional"/>
+          <xs:attribute type="xs:int" name="stdZip5" use="optional"/>
+          <xs:attribute type="xs:int" name="zip5" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Other">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="UndisclosedDebtActivity" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoanRegistryRecord">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="addressReceived" use="optional"/>
+          <xs:attribute type="xs:string" name="addressStandardized" use="optional"/>
+          <xs:attribute type="xs:string" name="addressStandardizedSuccess" use="optional"/>
+          <xs:attribute type="xs:string" name="borrowerFirstName" use="optional"/>
+          <xs:attribute type="xs:string" name="borrowerLastName" use="optional"/>
+          <xs:attribute type="xs:string" name="cityReceived" use="optional"/>
+          <xs:attribute type="xs:string" name="cityStandardized" use="optional"/>
+          <xs:attribute type="xs:int" name="loanAmount" use="optional"/>
+          <xs:attribute type="xs:long" name="minNumber" use="optional"/>
+          <xs:attribute type="xs:string" name="noteDate" use="optional"/>
+          <xs:attribute type="xs:string" name="reportedDate" use="optional"/>
+          <xs:attribute type="xs:string" name="servicer" use="optional"/>
+          <xs:attribute type="xs:string" name="stateReceived" use="optional"/>
+          <xs:attribute type="xs:string" name="stateStandardized" use="optional"/>
+          <xs:attribute type="xs:string" name="status" use="optional"/>
+          <xs:attribute type="xs:string" name="subjectAddress" use="optional"/>
+          <xs:attribute type="xs:string" name="within120Days" use="optional"/>
+          <xs:attribute type="xs:int" name="zipReceived" use="optional"/>
+          <xs:attribute type="xs:int" name="zipStandardized" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoanApplicationSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Other"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="extended" use="optional"/>
+      <xs:attribute type="xs:string" name="subjectPropertyAddress" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoanRegistry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LoanRegistryRecord" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="available" use="optional"/>
+      <xs:attribute type="xs:byte" name="loanRegCount" use="optional"/>
+      <xs:attribute type="xs:string" name="resultCode" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OwnerOccupancyAnalysis">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:short" name="LikelyResidenceSqft" use="optional"/>
+          <xs:attribute type="xs:int" name="LikelyResidenceValue" use="optional"/>
+          <xs:attribute type="xs:string" name="OwnerOccCaution" use="optional"/>
+          <xs:attribute type="xs:string" name="OwnerOfSubjectProperty" use="optional"/>
+          <xs:attribute type="xs:byte" name="PropertiesCurrentlyOwned" use="optional"/>
+          <xs:attribute type="xs:byte" name="PropertiesEverOwned" use="optional"/>
+          <xs:attribute type="xs:int" name="SubjectPropertValue" use="optional"/>
+          <xs:attribute type="xs:short" name="SubjectPropertySqft" use="optional"/>
+          <xs:attribute type="xs:string" name="sqftDirection" use="optional"/>
+          <xs:attribute type="xs:short" name="sqftShift" use="optional"/>
+          <xs:attribute type="xs:string" name="valueDirection" use="optional"/>
+          <xs:attribute type="xs:int" name="valueShift" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BorrowerSection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="LoanApplicationSummary"/>
+        <xs:element ref="LoanRegistry"/>
+        <xs:element ref="OwnerOccupancyAnalysis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Borrower">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="BorrowerSection"/>
+      </xs:sequence>
+      <xs:attribute type="xs:byte" name="BorrowerNumber" use="optional"/>
+      <xs:attribute type="xs:string" name="ssn" use="optional"/>
+      <xs:attribute type="xs:string" name="ssnSource" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Header">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="apn"/>
+          <xs:attribute type="xs:date" name="borrower0Dob"/>
+          <xs:attribute type="xs:float" name="borrower0Dti"/>
+          <xs:attribute type="xs:string" name="borrower0Name"/>
+          <xs:attribute type="xs:string" name="borrower0Ssn"/>
+          <xs:attribute type="xs:short" name="borrower0WorkPhone"/>
+          <xs:attribute type="xs:date" name="borrower1Dob"/>
+          <xs:attribute type="xs:string" name="borrower1Name"/>
+          <xs:attribute type="xs:string" name="borrower1Ssn"/>
+          <xs:attribute type="xs:string" name="borrower2Name"/>
+          <xs:attribute type="xs:string" name="borrower2Ssn"/>
+          <xs:attribute type="xs:string" name="borrower3Name"/>
+          <xs:attribute type="xs:string" name="borrower3Ssn"/>
+          <xs:attribute type="xs:string" name="borrower4Name"/>
+          <xs:attribute type="xs:string" name="borrower4Ssn"/>
+          <xs:attribute type="xs:string" name="borrower5Name"/>
+          <xs:attribute type="xs:string" name="borrower5Ssn"/>
+          <xs:attribute type="xs:string" name="borrowerHomePhone"/>
+          <xs:attribute type="xs:int" name="brokerCode"/>
+          <xs:attribute type="xs:string" name="brokerName"/>
+          <xs:attribute type="xs:float" name="combLtv"/>
+          <xs:attribute type="xs:short" name="creditScore"/>
+          <xs:attribute type="xs:string" name="currentAddress"/>
+          <xs:attribute type="xs:string" name="docType"/>
+          <xs:attribute type="xs:string" name="employerName"/>
+          <xs:attribute type="xs:int" name="estimatedValue"/>
+          <xs:attribute type="xs:string" name="firstTimeBuyer"/>
+          <xs:attribute type="xs:string" name="inputCity"/>
+          <xs:attribute type="xs:string" name="inputState"/>
+          <xs:attribute type="xs:string" name="inputStreetAddr"/>
+          <xs:attribute type="xs:int" name="inputZip"/>
+          <xs:attribute type="xs:int" name="loanAmount"/>
+          <xs:attribute type="xs:long" name="loanNumber"/>
+          <xs:attribute type="xs:string" name="loanPurpose"/>
+          <xs:attribute type="xs:float" name="ltv"/>
+          <xs:attribute type="xs:string" name="occupancyType"/>
+          <xs:attribute type="xs:string" name="orderNumber"/>
+          <xs:attribute type="xs:string" name="propertyAddress"/>
+          <xs:attribute type="xs:dateTime" name="reportDate"/>
+          <xs:attribute type="xs:date" name="searchDate"/>
+          <xs:attribute type="xs:string" name="searchDateRetro"/>
+          <xs:attribute type="xs:string" name="selfEmployed"/>
+          <xs:attribute type="xs:float" name="totalMonthlyIncome"/>
+          <xs:attribute type="xs:float" name="yearsOnTheJob"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Borrowers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Borrower" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PrivateData" nillable="true" type="xs:string"/>
+  <xs:element name="LSFM">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Header"/>
+        <xs:element ref="Borrowers"/>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="borrowerInput"/>
+      <xs:attribute type="xs:byte" name="collateralRiskScore"/>
+      <xs:attribute type="xs:string" name="landjStatus"/>
+      <xs:attribute type="xs:string" name="manageAlertsUrl"/>
+      <xs:attribute type="xs:string" name="masterID"/>
+      <xs:attribute type="xs:string" name="subjectInput"/>
+      <xs:attribute type="xs:string" name="wireFraud"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReportResults">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="PrivateData"/>
+        <xs:element ref="LSFM"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
